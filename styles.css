@@ -1230,3 +1230,35 @@
   background-color: var(--surface-active);
   border-color: var(--text);
 }
+
+/* ==========================================================================
+   RESPONSIVE: Mobile Layout (max-width: 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Studio Features Grid to Horizontal Flex */
+  #estudi > div > div:nth-child(2) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    grid-template-columns: unset;
+    gap: 1.5rem;
+  }
+
+  #estudi > div > div:nth-child(2) > div {
+    flex: 1 1 calc(50% - 0.75rem);
+    min-width: 160px;
+  }
+
+  /* Studio Location Card Responsive */
+  #estudi > div > div:last-child {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  #estudi > div > div:nth-child(2) > div {
+    flex: 1 1 100%;
+  }
+}
