@@ -51,5 +51,5 @@ Instructius per treballar en aquest repositori (web estàtica de **Proddigi Film
 
 ## Punts d'atenció
 
-- `screen.png` (captura de repositori) s'ha eliminat del repositori per mantenir-lo net.
+- `code.html` s'ha suprimit; la pàgina de mostra és només `index.html` (amb `styles.css` i `app.js`).
 - No canviïs el selector `data-theme` ni el `lang="ca"` sense actualitzar la documentació.
