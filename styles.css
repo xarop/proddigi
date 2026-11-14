@@ -326,6 +326,14 @@
         z-index: 1;
         overflow: hidden;
 
+        iframe.hero-video-background {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border: none;
+          pointer-events: none;
+        }
+
         img.hero-bg-media {
           width: 100%;
           height: 100%;
