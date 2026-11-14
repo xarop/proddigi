@@ -234,4 +234,44 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(updateActiveLink, 100);
     });
   });
+
+  // 8. Hero Video Volume Control (Vimeo API)
+  const volumeToggle = document.getElementById('volumeToggle');
+  const heroVideoPlayer = document.getElementById('heroVideoPlayer');
+  
+  if (volumeToggle && heroVideoPlayer) {
+    // Load Vimeo API
+    const script = document.createElement('script');
+    script.src = 'https://player.vimeo.com/api/player.js';
+    script.onload = () => {
+      const player = new window.Vimeo.Player(heroVideoPlayer);
+      let isMuted = true;
+      
+      // Set initial state
+      player.setVolume(0);
+      volumeToggle.classList.add('muted');
+      
+      // Toggle volume on button click
+      volumeToggle.addEventListener('click', async () => {
+        try {
+          if (isMuted) {
+            // Unmute - set volume to 0.5 (50%)
+            await player.setVolume(0.5);
+            isMuted = false;
+            volumeToggle.classList.remove('muted');
+            volumeToggle.setAttribute('aria-label', 'Desactivar so');
+          } else {
+            // Mute
+            await player.setVolume(0);
+            isMuted = true;
+            volumeToggle.classList.add('muted');
+            volumeToggle.setAttribute('aria-label', 'Activar so');
+          }
+        } catch (error) {
+          console.log('Volume control:', error);
+        }
+      });
+    };
+    document.head.appendChild(script);
+  }
 });
