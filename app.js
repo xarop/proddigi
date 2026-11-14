@@ -174,4 +174,64 @@ document.addEventListener('DOMContentLoaded', () => {
       );
     });
   });
+
+  // 7. Scroll-based Active Link Animation
+  const navLinks = document.querySelectorAll('nav ul a');
+  const sections = document.querySelectorAll('section[id]');
+  const navBar = document.querySelector('nav');
+
+  function updateActiveLink() {
+    let currentSection = null;
+
+    // Find which section is currently in view
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+        currentSection = section.id;
+      }
+    });
+
+    // Update nav links and animate underline
+    navLinks.forEach(link => {
+      link.removeAttribute('aria-current');
+      
+      if (currentSection && link.getAttribute('href') === `#${currentSection}`) {
+        link.setAttribute('aria-current', 'page');
+        
+        // Calculate and animate underline position
+        if (navBar) {
+          const navUl = navBar.querySelector('ul');
+          if (navUl) {
+            const linkRect = link.getBoundingClientRect();
+            const navRect = navUl.getBoundingClientRect();
+            
+            const leftPos = linkRect.left - navRect.left;
+            const width = linkRect.width;
+            
+            navBar.style.setProperty('--underline-left', `${leftPos}px`);
+            navBar.style.setProperty('--underline-width', `${width}px`);
+          }
+        }
+      }
+    });
+  }
+
+  // Initialize underline position on page load
+  window.addEventListener('load', () => {
+    updateActiveLink();
+  });
+
+  // Update on scroll with throttling
+  let scrollTimeout;
+  window.addEventListener('scroll', () => {
+    if (scrollTimeout) clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(updateActiveLink, 50);
+  }, { passive: true });
+
+  // Click on nav links updates position immediately
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      setTimeout(updateActiveLink, 100);
+    });
+  });
 });
