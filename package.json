@@ -1,0 +1,15 @@
+{
+  "name": "proddigi",
+  "version": "1.0.0",
+  "description": "**Proddigi** (Proddigi Films) és una productora audiovisual de Barcelona. Fa de l'**estudi cinematogràfic** i treballa amb càmeres professionals, òptiques anamòrfiques i una mirada d'autor, des de la **narrativa documental, la publicitat, la producción institucional i la fiction**.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.108.2"
+  }
+}
