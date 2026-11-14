@@ -1248,3 +1248,122 @@
     width: 100%;
   }
 }
+
+/* ==========================================================================
+   CONTACT SECTION (#contacte)
+   ========================================================================== */
+.contact-section {
+  padding-top: clamp(4rem, 8vw, 6.5rem);
+  padding-bottom: clamp(4rem, 8vw, 6.5rem);
+  border-top: 1px solid var(--border);
+}
+
+.contact-section > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-container);
+}
+
+.contact-section > div > div:first-child {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contact-section > div > div:first-child span {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.contact-section > div > div:first-child h2 {
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  letter-spacing: -0.04em;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Contact Description */
+.contact-section > div > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-section > div > div:nth-child(2) p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* Contact CTA Card */
+.contact-section > div > div:last-child {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 1.75rem 2rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.contact-section > div > div:last-child > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.contact-section > div > div:last-child span {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  letter-spacing: 0.06em;
+}
+
+.contact-section > div > div:last-child p {
+  font-size: 1rem;
+  color: var(--text);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.contact-section > div > div:last-child a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.65rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-elevated);
+  color: var(--text);
+  font-weight: 600;
+  transition: background-color 200ms ease, border-color 200ms ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.contact-section > div > div:last-child a:hover {
+  background-color: var(--surface-active);
+  border-color: var(--text);
+}
+
+@media (max-width: 768px) {
+  .contact-section > div > div:last-child {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
