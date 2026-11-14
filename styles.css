@@ -1310,9 +1310,10 @@
   padding: 2.5rem 2.5rem;
   border-radius: var(--radius-sm);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   gap: 2rem;
-  align-items: flex-start;
 }
 
 .contact-section > div > div:last-child span {
@@ -1347,7 +1348,7 @@
   transition: all 200ms ease;
   text-decoration: none;
   cursor: pointer;
-  margin-top: 0.5rem;
+  flex-shrink: 0;
 }
 
 .contact-section > div > div:last-child a.cta-primary:hover {
@@ -1358,6 +1359,8 @@
 
 @media (max-width: 768px) {
   .contact-section > div > div:last-child {
+    flex-direction: column;
+    align-items: flex-start;
     padding: 1.75rem 1.75rem;
   }
 }
