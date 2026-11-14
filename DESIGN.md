@@ -1,6 +1,6 @@
 # DESIGN SYSTEM — Prodddigi
 
-Documentació del disseny editorial de la web de **Proddigi Films**. El sistema està implementat en puro CSS (sense pre-processador ni framework) i s'aplica a tot el document `code.html`.
+Documentació del disseny editorial de la web de **Proddigi Films**. El sistema està implementat en puro CSS (`styles.css`) i JavaScript natiu (`app.js`), i s'aplica a `index.html`.
 
 ## 1. L'identitat visual
 
@@ -62,12 +62,12 @@ Tots els valors es defineixen a `:root` (mode clar) i s'inverteixen al selector 
 
 ## 7. Conservació del sistema
 
-- **No** s'afegeixen dependències externs (cap `package.json`, cap framework). El CSS i el JS estan tots al fitxer.
+- **No** s'afegeixen dependències externs (cap `package.json`, cap framework). El CSS està a `styles.css` i el JS a `app.js`; ambdós són estàtics i es serveixen directament amb GitHub Pages.
 - Si s'importa un canvi de disseny, caldrà actualitzar els tokens i revisar els components listats a la secció 5.
 - Per a noves pages, es conserva el mateix esquema de classes (estil BEM lleig: `.cinema-card`, `.card-frame`, `.filter-btn`, etc.).
 
 ## 8. Notes de rendiment
 
 - `loading="lazy"` a les imatges.  
-- Fons amb `background-attachment` i deeps fint per no degradar el render.  
+- Fons amb `background-attachment` i efectes de "film grain" finos per no degradar el render.  
 - Si es publiquen videoclips més pesants, pensar en lazy-load i en format optimitzat.

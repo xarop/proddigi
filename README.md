@@ -9,7 +9,7 @@ Aquest repositori conté la web estàtica de Proddigi: un disseny editorial cine
 
 ## Enllaços
 
-- 💻 **Codi font:** [`code.html`](code.html)
+- 💻 **Pàgina principal:** [`index.html`](index.html)
 - 🌐 **Demostració en línia:** `https://<usuari>.github.io/proddigi` *(cal completar amb el nom d'usuari després d'activar GitHub Pages)*
 - 📧 **Contacte:** [info@proddigi.com](mailto:info@proddigi.com) · +34 93 532 66 47
 - 📍 **Estudi:** Carrer del Consell de Cent, 315 E2, 08007 Barcelona
@@ -18,9 +18,9 @@ Aquest repositori conté la web estàtica de Proddigi: un disseny editorial cine
 
 La pàgina és un solo fitxer estàtic (`code.html`) que agrupa:
 
-- **HTML** — estructura semàntica i àrea de continguts (portafoli, estudi, serveis, contacte, lightbox de vídeo).
-- **CSS nadiu (pure CSS)** — el "design system" editorial cinematic, amb suport de mode clar/dark a través de l'atribut `data-theme`.
-- **JavaScript natiu** — filtre de categoria, lightbox de vídeo, botiga de retall, i gestió del selector de llengua.
+- **HTML semàntic (`index.html`)** — estructura de la pàgina (portafoli, estudi, serveis, contacte, lightbox de vídeo).
+- **CSS pur (`styles.css`)** — el "design system" editorial cinematic, amb suport de mode clar/dark a través de `data-theme` i variables CSS.
+- **JavaScript natiu (`app.js`)** — filtre de categoria, lightbox de vídeo, gestió del selector de llengua i del switch de mode/clar, tot sense handlers en línia.
 
 No requereix build, paquets ni servidor: és un repositori que es pot obrir directament o desplegar a GitHub Pages.
 
@@ -28,10 +28,13 @@ No requereix build, paquets ni servidor: és un repositori que es pot obrir dire
 
 ```text
 .
-├── code.html            # Document principal (edició local)
-├── index.html           # Entrada per a GitHub Pages (còpia de code.html)
-├── screen.png           # Captura per a descripcions i imatges de repositori
-└── README.md            # Aquesta documentació
+├── index.html           # Pàgina principal (HTML semàntic)
+├── styles.css           # Design system editorial (CSS nadiu)
+├── app.js               # Interactivitat nativa (sense handlers en línia)
+├── README.md            # Aquesta documentació
+├── DESIGN.md            # Disseny editorial / tokens
+├── AGENTS.md            # Instruccions per a treballar en aquest repositori
+└── .gitignore           # Patrons de neteja del repositori
 ```
 
 ## Com executar localment
