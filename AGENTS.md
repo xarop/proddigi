@@ -1,12 +1,14 @@
 # AGENTS
 
-Instructius per treballar en aquest repositori (web estàtica de **Proddigi Films**).
+Instruccions per treballar en aquest repositori (web estàtica de **Proddigi Films**).
 
 ## Resum del projecte
 
 - **Què és:** pàgina web estàtica d'una productora audiovisual de Barcelona.
 - **Entry:** `index.html` (HTML) + `styles.css` (CSS) + `app.js` (JavaScript) — tres fitxers estàtics i separats.
 - **Per què no hi ha build:** no calen paquets ni compilar res; GitHub Pages ens serveix directament.
+- **Repositori:** [github.com/xarop/proddigi](https://github.com/xarop/proddigi)
+- **Web en viu:** [xarop.github.io/proddigi](https://xarop.github.io/proddigi)
 
 ## Tecnologia
 
@@ -44,12 +46,13 @@ Instructius per treballar en aquest repositori (web estàtica de **Proddigi Film
 
 ## Desplegament (GitHub Pages)
 
-1. Configura el repositori amb branca `main`.
-2. En GitHub, **Settings → Pages**: branca `main`, ruta `/ (root)`.
-3. La pàgina estarà a `https://<usuari>.github.io/proddigi`.
-4. L'URL s'escriu a `README.md` i s'ha de refreshar després de cap canvi.
+1. Repositori principal: [`github.com/xarop/proddigi`](https://github.com/xarop/proddigi)
+2. La branca `main` està configurada per a GitHub Pages
+3. La pàgina estarà en viu a `https://xarop.github.io/proddigi`
+4. Cada `git push origin main` actualitza automàticament la web
 
 ## Punts d'atenció
 
-- `code.html` s'ha suprimit; la pàgina de mostra és només `index.html` (amb `styles.css` i `app.js`).
-- No canviïs el selector `data-theme` ni el `lang="ca"` sense actualitzar la documentació.
+- `_design/code.html` és arxiu de referència (no s'usa en producció)
+- La pàgina en producció usa `index.html` + `styles.css` + `app.js`
+- No canviïs el selector `data-theme` ni el `lang="ca"` sense actualitzar la documentació

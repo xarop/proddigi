@@ -1,6 +1,9 @@
-# DESIGN SYSTEM — Prodddigi
+# DESIGN SYSTEM — Proddigi Films
 
 Documentació del disseny editorial de la web de **Proddigi Films**. El sistema està implementat en puro CSS (`styles.css`) i JavaScript natiu (`app.js`), i s'aplica a `index.html`.
+
+**Referència en viu:** [xarop.github.io/proddigi](https://xarop.github.io/proddigi)
+**Repositori:** [github.com/xarop/proddigi](https://github.com/xarop/proddigi)
 
 ## 1. L'identitat visual
 
