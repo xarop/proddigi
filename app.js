@@ -3,9 +3,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeToggleDesktop = document.getElementById('themeToggle');
   const themeToggleMobile = document.getElementById('themeToggleMobile');
 
+  function syncThemeToggle() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    const thumbs = document.querySelectorAll('#themeToggle span, #themeToggleMobile span');
+    thumbs.forEach(thumb => {
+      thumb.style.transform = isDark ? 'translateX(0)' : 'translateX(18px)';
+    });
+  }
+
   function setTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('proddigi-theme', theme);
+    syncThemeToggle();
   }
 
   function toggleTheme() {
