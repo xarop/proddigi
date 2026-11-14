@@ -1,8 +1,5 @@
 # Proddigi
 
-![Branca principal](https://img.shields.io/badge/branch-main-blue?style=flat-square)
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-live-brightgreen?style=flat-square)](https://<usuari>.github.io/proddigi)
-
 **Proddigi** (Proddigi Films) és una productora audiovisual de Barcelona. Fa de l'**estudi cinematogràfic** i treballa amb càmeres professionals, òptiques anamòrfiques i una mirada d'autor, des de la **narrativa documental, la publicitat, la producción institucional i la fiction**.
 
 Aquest repositori conté la web estàtica de Proddigi: un disseny editorial cinematogràfic (dark/light mode), filtres d'especialitat, fouquese implícita de vídeo nativa i accés per teclat.
