@@ -240,38 +240,43 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroVideoPlayer = document.getElementById('heroVideoPlayer');
   
   if (volumeToggle && heroVideoPlayer) {
-    // Load Vimeo API
-    const script = document.createElement('script');
-    script.src = 'https://player.vimeo.com/api/player.js';
-    script.onload = () => {
+    // Load Vimeo API script
+    const vimeoScript = document.createElement('script');
+    vimeoScript.src = 'https://player.vimeo.com/api/player.js';
+    vimeoScript.async = true;
+    
+    vimeoScript.onload = () => {
+      // Initialize Vimeo player
       const player = new window.Vimeo.Player(heroVideoPlayer);
-      let isMuted = true;
+      let isAudioOn = false;
       
-      // Set initial state
-      player.setVolume(0);
+      // Start muted
+      player.setVolume(0).catch(e => console.log('Initial mute:', e));
       volumeToggle.classList.add('muted');
       
-      // Toggle volume on button click
-      volumeToggle.addEventListener('click', async () => {
+      // Volume toggle handler
+      volumeToggle.addEventListener('click', async (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
         try {
-          if (isMuted) {
-            // Unmute - set volume to 0.5 (50%)
-            await player.setVolume(0.5);
-            isMuted = false;
-            volumeToggle.classList.remove('muted');
-            volumeToggle.setAttribute('aria-label', 'Desactivar so');
-          } else {
+          if (isAudioOn) {
             // Mute
             await player.setVolume(0);
-            isMuted = true;
+            isAudioOn = false;
             volumeToggle.classList.add('muted');
-            volumeToggle.setAttribute('aria-label', 'Activar so');
+          } else {
+            // Unmute - set to 70% volume for audio
+            await player.setVolume(0.7);
+            isAudioOn = true;
+            volumeToggle.classList.remove('muted');
           }
         } catch (error) {
-          console.log('Volume control:', error);
+          console.log('Volume control error:', error);
         }
       });
     };
-    document.head.appendChild(script);
+    
+    document.head.appendChild(vimeoScript);
   }
 });
