@@ -1,19 +1,22 @@
-<!DOCTYPE html><html data-theme="dark" lang="ca"><head>
+<!DOCTYPE html>
+<html data-theme="dark" lang="ca">
+<head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Proddigi — Productora Audiovisual Barcelona</title>
 <link href="https://fonts.googleapis.com" rel="preconnect">
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-
-
 </head>
 <body>
-<!-- 1. MINIMALIST HEADER -->
+
 <header>
 <div class="header-container">
-<a aria-label="Proddigi inici" class="brand" href="#"><span style="font-family: var(--font-sans); font-weight: 800; font-size: 1.35rem; letter-spacing: -0.04em; color: var(--text); display: inline-flex; align-items: baseline; gap: 4px;">proddigi<span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #FF334B; box-shadow: 0 0 8px rgba(255, 51, 75, 0.7); margin-bottom: 2px;"></span></span></a>
+<a aria-label="Proddigi inici" class="brand" href="#">
+<span class="brand-text">proddigi</span>
+<span class="brand-dot"></span>
+</a>
 <button aria-expanded="false" aria-label="Obrir menú" class="menu-toggle" id="menuToggle">
 <svg fill="none" height="22" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="22">
 <line x1="3" x2="21" y1="12" y2="12"></line>
@@ -29,7 +32,9 @@
 <li><a href="#contacte">Contacte</a></li>
 </ul>
 <div class="nav-mobile-actions">
-<button id="themeToggleMobile" aria-label="Canviar tema clar/fosc" type="button" style="position: relative; width: 38px; height: 20px; border-radius: 999px; background: var(--surface-elevated); border: 1px solid var(--border); cursor: pointer; padding: 2px; display: flex; align-items: center; transition: background-color 200ms, border-color 200ms;"><span style="display: block; width: 14px; height: 14px; border-radius: 50%; background: var(--text); transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1); transform: translateX(0);"></span></button>
+<button id="themeToggleMobile" aria-label="Canviar tema clar/fosc" type="button" class="theme-toggle">
+<span class="theme-thumb"></span>
+</button>
 <div aria-label="Selector d'idioma" class="lang-switcher">
 <button aria-pressed="true" class="active" type="button">CAT</button>
 <span class="divider">/</span>
@@ -40,8 +45,9 @@
 </div>
 </nav>
 <div class="header-actions">
-<!-- Architectural Dark / Light Segmented Switch (Strictly NO Sun/Moon icons) -->
-<button id="themeToggle" aria-label="Canviar tema clar/fosc" type="button" style="position: relative; width: 38px; height: 20px; border-radius: 999px; background: var(--surface-elevated); border: 1px solid var(--border); cursor: pointer; padding: 2px; display: flex; align-items: center; transition: background-color 200ms, border-color 200ms;" onclick="const isDark = document.documentElement.getAttribute('data-theme') === 'dark'; document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark'); const thumb = this.querySelector('span'); if(thumb) { thumb.style.transform = isDark ? 'translateX(18px)' : 'translateX(0)'; }"><span style="display: block; width: 14px; height: 14px; border-radius: 50%; background: var(--text); transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1); transform: translateX(0);"></span></button>
+<button id="themeToggle" aria-label="Canviar tema clar/fosc" type="button" class="theme-toggle">
+<span class="theme-thumb"></span>
+</button>
 <div aria-label="Selector d'idioma" class="lang-switcher">
 <button aria-pressed="true" class="active" type="button">CAT</button>
 <span class="divider">/</span>
@@ -52,252 +58,206 @@
 </div>
 </div>
 </header>
-<!-- 2. FULL-BLEED CINEMATIC HERO SECTION -->
+
 <section aria-labelledby="hero-title" class="hero-cinema">
-<!-- Edge-to-edge backdrop -->
 <div class="hero-backdrop-container">
 <img alt="Fotograma panoràmic cinematogràfic de Barcelona al capvespre" class="hero-bg-media" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa7T5y7E-jn1FsMDiIOYOqTAEVRfY71gZM5R4o2aRAGVkQz3lxk2mAFpXsM5BPtLLHQMBtGSf3EOK5dYydp6tCOsDKrGPx5gAmKQW2V9gmbAjfxFcJHsi1Pk4G1yHaOAobyThvLAp-iCaqLpgm0UoXSNtO6yXS4IEP3EG0c5oIiKsiq7wK_jRzGmXhFWi9ldHGcKcscdyXE4LnVNG7ei7BrbLRH4MB59LuklrzPrY">
 <div class="hero-vignette"></div>
 <div class="film-grain"></div>
 </div>
-<!-- Top studio metadata badge -->
+
 <div class="hero-top-bar">
 <div class="tech-badge">
 <span class="rec-pulse"></span>
 <span>ESTUDI CINEMATOGRÀFIC • BARCELONA / 41°23'24"N 2°09'57"E</span>
 </div>
 </div>
-<!-- Center Cinematic Statement -->
-<div class="hero-center-content">
-<div class="hero-title-area">
-<h1 id="hero-title">
-          Producció audiovisual integral.
-          <span style="display: block; font-weight: 400; color: rgba(244, 244, 245, 0.88); font-style: normal; letter-spacing: -0.03em; margin-top: 0.2rem;">Explica la teva història.</span>
-</h1>
-<p class="studio-manifesto">
-          A Proddigi entenem la producció com un procés artesanal de col·laboració continu. Cinema, publicitat i narrativa documental d'alta precisió.
-        </p>
+
+<div class="hero-main">
+<div class="hero-content">
+<h1 id="hero-title">Narrativa Visual Cinematogràfica</h1>
+<p class="hero-subtitle">Producció audiovisual d'altíssima qualitat per a publicitat, branded content i narrativa documental. Basada a Barcelona amb equips de cinematografia de classe mundial.</p>
+<button id="heroReelTrigger" class="play-reel-btn" data-embed="https://player.vimeo.com/video/76979871?autoplay=1&amp;title=0&amp;byline=0&amp;portrait=0" data-title="Proddigi Reel 2025" data-client="Proddigi Barcelona • 2025" data-category="Showreel Oficial" data-director="Proddigi Cinema Dept." data-dop="Alex Costa" data-format="4K DCI • Hawk Anamorphic" data-year="2025">
+<span class="play-icon"></span>
+PLAY REEL • 01:45
+</button>
 </div>
-<div class="hero-cta-action"><button id="heroReelTrigger" type="button" aria-label="Reproduir Showreel Proddigi" class="play-reel-btn" data-category="Showreel Oficial" data-client="Proddigi Barcelona • 2025" data-embed="https://player.vimeo.com/video/76979871?autoplay=1&amp;title=0&amp;byline=0&amp;portrait=0" data-title="Proddigi Reel 2025" data-director="Proddigi Cinema Dept." data-dop="Alex Costa" data-format="4K DCI • Hawk Anamorphic" data-year="2025" style="display: inline-flex; align-items: center; gap: 0.75rem; background: rgba(10, 10, 11, 0.5); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.25); color: rgb(255, 255, 255); padding: 0.5rem 1.15rem; border-radius: 999px; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; transition: 200ms; cursor: pointer;"><span style="display: inline-block; width: 0; height: 0; border-top: 4px solid transparent; border-bottom: 4px solid transparent; border-left: 7px solid #ffffff; margin-right: 2px;"></span><span>PLAY REEL • 01:45</span></button></div>
 </div>
-<!-- Bottom Camera & Film Telemetry Bar -->
-<div class="hero-bottom-telemetry">
-<div class="telemetry-container">
-<div class="tech-left">
-<span>ARRI ALEXA MINI LF</span>
-<span>HAWK V-LITE 2.0x ANAMORPHIC</span>
-<span>KODAK 5219 EMULSION PROFILE</span>
+
+<div class="hero-scroll-cue">
+<span>DESCOBRIR</span>
+<svg fill="none" height="20" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" width="20">
+<path d="M12 5v14M19 13l-7 7-7-7"></path>
+</svg>
 </div>
-<div class="tech-right">
-<span class="spec-highlight">4K DCI • 2.39:1 CINEMASCOPE</span>
-<span>BARCELONA STUDIO</span>
+</section>
+
+<nav aria-label="Filtre de categories" class="filter-bar">
+<button class="filter-btn active" data-filter="all">Tots</button>
+<button class="filter-btn" data-filter="advertising">Publicitat</button>
+<button class="filter-btn" data-filter="branded">Branded</button>
+<button class="filter-btn" data-filter="documentary">Documental</button>
+<button class="filter-btn" data-filter="institutional">Institucional</button>
+</nav>
+
+<section id="portafoli" class="portfolio-section">
+<div class="container">
+<h2>PORTAFOLI</h2>
+<div class="portfolio-grid">
+
+<div class="cinema-card" data-category="advertising" data-title="Campanya Publicitaria" data-client="Client • Marca" data-tag="Publicitat 30s" data-embed="https://player.vimeo.com/video/76979871?autoplay=1" data-director="Director XYZ" data-dop="Cinematografia Proddigi" data-format="4K DCI" data-year="2024">
+<div class="card-backdrop">
+<img alt="Projecte 1" src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=400&h=300&fit=crop" loading="lazy">
 </div>
+<div class="card-overlay">
+<div class="card-content">
+<h3>Projecte 1</h3>
+<p>Descripció breu del projecte</p>
+</div>
+<button class="play-btn" aria-label="Reproduir vídeo">
+<svg fill="currentColor" height="24" viewBox="0 0 24 24" width="24">
+<polygon points="5 3 19 12 5 21"></polygon>
+</svg>
+</button>
+</div>
+</div>
+
+<div class="cinema-card" data-category="branded" data-title="Branded Content" data-client="Client • Marca" data-tag="Branded 60s" data-embed="https://player.vimeo.com/video/76979871?autoplay=1" data-director="Director XYZ" data-dop="Cinematografia Proddigi" data-format="4K DCI" data-year="2024">
+<div class="card-backdrop">
+<img alt="Projecte 2" src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=400&h=300&fit=crop" loading="lazy">
+</div>
+<div class="card-overlay">
+<div class="card-content">
+<h3>Projecte 2</h3>
+<p>Descripció breu del projecte</p>
+</div>
+<button class="play-btn" aria-label="Reproduir vídeo">
+<svg fill="currentColor" height="24" viewBox="0 0 24 24" width="24">
+<polygon points="5 3 19 12 5 21"></polygon>
+</svg>
+</button>
+</div>
+</div>
+
+<div class="cinema-card" data-category="documentary" data-title="Documental" data-client="Client • Marca" data-tag="Documentary" data-embed="https://player.vimeo.com/video/76979871?autoplay=1" data-director="Director XYZ" data-dop="Cinematografia Proddigi" data-format="4K DCI" data-year="2024">
+<div class="card-backdrop">
+<img alt="Projecte 3" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop" loading="lazy">
+</div>
+<div class="card-overlay">
+<div class="card-content">
+<h3>Projecte 3</h3>
+<p>Descripció breu del projecte</p>
+</div>
+<button class="play-btn" aria-label="Reproduir vídeo">
+<svg fill="currentColor" height="24" viewBox="0 0 24 24" width="24">
+<polygon points="5 3 19 12 5 21"></polygon>
+</svg>
+</button>
+</div>
+</div>
+
+<div class="cinema-card" data-category="advertising" data-title="Campaign" data-client="Client • Marca" data-tag="Advertising" data-embed="https://player.vimeo.com/video/76979871?autoplay=1" data-director="Director XYZ" data-dop="Cinematografia Proddigi" data-format="4K DCI" data-year="2024">
+<div class="card-backdrop">
+<img alt="Projecte 4" src="https://images.unsplash.com/photo-1489749798305-4fea3ba63d60?w=400&h=300&fit=crop" loading="lazy">
+</div>
+<div class="card-overlay">
+<div class="card-content">
+<h3>Projecte 4</h3>
+<p>Descripció breu del projecte</p>
+</div>
+<button class="play-btn" aria-label="Reproduir vídeo">
+<svg fill="currentColor" height="24" viewBox="0 0 24 24" width="24">
+<polygon points="5 3 19 12 5 21"></polygon>
+</svg>
+</button>
+</div>
+</div>
+
 </div>
 </div>
 </section>
-<!-- MAIN WRAPPER -->
-<main>
-<!-- 3. FILTERABLE SELECTED WORKS GRID -->
-<section aria-labelledby="portfolio-heading" class="portfolio-section" id="portafoli">
-<div class="section-heading-bar">
-<div class="heading-meta">
-<span class="meta-label">Estudi &amp; Realització</span>
-<h2 id="portfolio-heading">Projectes Seleccionats</h2>
-</div>
-<nav aria-label="Filtre de categories" class="filter-bar">
-<button class="filter-btn active" data-filter="all" type="button">Tots</button>
-<button class="filter-btn" data-filter="publicitat" type="button">Publicitat</button>
-<button class="filter-btn" data-filter="corporatiu" type="button">Corporatiu</button>
-<button class="filter-btn" data-filter="documental" type="button">Documental</button>
-</nav>
-</div>
-<div class="portfolio-grid" id="portfolioGrid">
-<!-- Project 1: The Only Man (Documental) -->
-<article class="cinema-card" data-category="documental" data-client="Documental &amp; Ficció" data-embed="https://player.vimeo.com/video/148751763?autoplay=1&amp;title=0&amp;byline=0&amp;portrait=0" data-tag="Documental de Creació" data-title="The Only Man" data-director="Mireia Graell" data-dop="Pol Peitx (AEC)" data-format="Arri Alexa Mini LF • 2.39:1" data-year="2024">
-<figure class="card-frame">
-<img alt="The Only Man — Retrat íntim en estudi de pintura" class="card-still" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-rZRBZ5W18WUTSbVAjdGe9Ki2Tc3GfzDQPU7bbwYMS0nJIzQPkbLK53t1ZlGosSQJMkEtWmWhYb5hq23xcIPHbt2Ce_7y4qLNuj09NlpGsNTpJus4y2Oo0maQcLBTdXyaMi8smift5EX_PwECXUkD2Ex6yNgAjsZHcVPkzIgGiz6eoLEpSTNqC8F_xufhaZDMBWQFuDxvZ88miGhBjcXDqSc02Bl1gleO67beVKA">
-<span class="duration-pill">03:20</span>
-<div class="hover-play-layer">
-<div class="circle-play">
-<svg viewBox="0 0 24 24"><polygon points="6 4 18 12 6 20 6 4"></polygon></svg>
-</div>
-</div>
-</figure>
-<figcaption class="card-caption">
-<div class="meta-row">
-<span>Documental</span>
-<span>2024</span>
-</div>
-<div class="title-row">
-<h3>The Only Man</h3>
-<svg class="arrow-icon" viewBox="0 0 24 24"><line x1="7" x2="17" y1="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-</div>
-<p class="client-info">Documental &amp; Ficció • Retrat d'artista en clarobscur</p>
-</figcaption>
-</article>
-<!-- Project 2: Diamonds (Publicitat) -->
-<article class="cinema-card" data-category="publicitat" data-client="Joieria &amp; Comercial" data-embed="https://player.vimeo.com/video/76979871?autoplay=1&amp;title=0&amp;byline=0&amp;portrait=0" data-tag="Campanya Joieria Alta Gamma" data-title="Diamonds" data-director="Marc Fàbregas" data-dop="Oriol Vila" data-format="Macro Master Primes • 4K DCI" data-year="2024">
-<figure class="card-frame">
-<img alt="Diamonds — Still macro de joieria d'alta precisió" class="card-still" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDey9xE294gyxujILKXJ-SW75gH9P4u7LvlSLslPHPvqMR3G4zXgvR1mUqRaXnphRB9--Wgbzvgdlu0revIEgPD4XSf-7PtFabi6xrRGgB7y8-7KRLOC43WziDOx60pxcJtpPgiLq-H5MwtBlQ6GZ00cKLn0LG0RLPgUGNNcg-ZLLEku8JW_XnyiDo6lVdlfmVdly6iiikX3JPNazbP48wZB-Ka9EG9PiikMBguD8E">
-<span class="duration-pill">00:45</span>
-<div class="hover-play-layer">
-<div class="circle-play">
-<svg viewBox="0 0 24 24"><polygon points="6 4 18 12 6 20 6 4"></polygon></svg>
-</div>
-</div>
-</figure>
-<figcaption class="card-caption">
-<div class="meta-row">
-<span>Publicitat</span>
-<span>2024</span>
-</div>
-<div class="title-row">
-<h3>Diamonds</h3>
-<svg class="arrow-icon" viewBox="0 0 24 24"><line x1="7" x2="17" y1="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-</div>
-<p class="client-info">Joieria &amp; Comercial • Spot Cinema 4K</p>
-</figcaption>
-</article>
-<!-- Project 3: UIC — Grau en Comunicació Audiovisual (Corporatiu) -->
-<article class="cinema-card" data-category="corporatiu" data-client="Universitat Internacional de Catalunya" data-embed="https://player.vimeo.com/video/148751763?autoplay=1&amp;title=0&amp;byline=0&amp;portrait=0" data-tag="Film Universitari i Arquitectònic" data-title="UIC — Grau en Comunicació Audiovisual" data-director="Sergi Miralles" data-dop="Carles Gusi" data-format="RED V-Raptor 8K • Cooke S4/i" data-year="2024">
-<figure class="card-frame">
-<img alt="UIC Grau en Comunicació — Still d'arquitectura contemporània" class="card-still" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCACyLcX9NDTM29xFw4vY6BMbVKIe2J2divc6pi3dZG8EC8mqQ0cjhSLq9LcFUhEtNvh_zK6ZQeEb5lypXSz38_hC-Z_9m81qlnNIGWyEVzs742BMaGDjZuECp9--ApjADnuP5v8wD2IWTWOm9S5rUmYEB9FndFIwJQoVsZ6IOIVWw6lmemtqMjWCJSJmcvPhRjBhodLu1orT4of9pugJ_sf8mWo6awf5IE0Ws6ZIE">
-<span class="duration-pill">01:50</span>
-<div class="hover-play-layer">
-<div class="circle-play">
-<svg viewBox="0 0 24 24"><polygon points="6 4 18 12 6 20 6 4"></polygon></svg>
-</div>
-</div>
-</figure>
-<figcaption class="card-caption">
-<div class="meta-row">
-<span>Corporatiu</span>
-<span>2024</span>
-</div>
-<div class="title-row">
-<h3>UIC — Grau en Comunicació Audiovisual</h3>
-<svg class="arrow-icon" viewBox="0 0 24 24"><line x1="7" x2="17" y1="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-</div>
-<p class="client-info">Universitat Internacional de Catalunya • Campanya de Grau</p>
-</figcaption>
-</article>
-<!-- Project 4: Join the Fight Against IBD (Corporatiu) -->
-<article class="cinema-card" data-category="corporatiu" data-client="Recerca Biomèdica &amp; Salut" data-embed="https://player.vimeo.com/video/76979871?autoplay=1&amp;title=0&amp;byline=0&amp;portrait=0" data-tag="Recerca Científica &amp; Salut" data-title="Join the Fight Against IBD">
-<figure class="card-frame">
-<img alt="Join the Fight Against IBD — Still cinematogràfic de laboratori" class="card-still" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNuru2xQcl5ZPAMee87jTuxCm-5rVnSQ_Ht5OLQgkkDpJRghn84OC3e0GtaSF2Kyi_wzK61NU4panhLKmV_CIcLDLeq6Gkd3KVm2UPprz3DjojtMlm8a4GieKzNGiPuYAWgQjz83h2p33ne2dRlbaXBLs7Yy_ttiNB7T0ySeFvEw_U8JM4talRFu_-6elLhxPIuW7WmZY9Kfc73sMkZ_U8jwc-YNFgZJsn0lMD0ig">
-<span class="duration-pill">02:40</span>
-<div class="hover-play-layer">
-<div class="circle-play">
-<svg viewBox="0 0 24 24"><polygon points="6 4 18 12 6 20 6 4"></polygon></svg>
-</div>
-</div>
-</figure>
-<figcaption class="card-caption">
-<div class="meta-row">
-<span>Corporatiu</span>
-<span>2023</span>
-</div>
-<div class="title-row">
-<h3>Join the Fight Against IBD</h3>
-<svg class="arrow-icon" viewBox="0 0 24 24"><line x1="7" x2="17" y1="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-</div>
-<p class="client-info">Recerca Biomèdica &amp; Salut • Documental Científic</p>
-</figcaption>
-</article>
-<!-- Project 5: COPISA — Infraestructures Globals (Corporatiu) -->
-<article class="cinema-card" data-category="corporatiu" data-client="COPISA Grup" data-embed="https://player.vimeo.com/video/148751763?autoplay=1&amp;title=0&amp;byline=0&amp;portrait=0" data-tag="Gran Obra d'Enginyeria" data-title="COPISA — Infraestructures Globals">
-<figure class="card-frame">
-<img alt="COPISA — Obra d'infraestructura a l'hora daurada de Barcelona" class="card-still" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuGbKKXurmcKSwCCidCK_Vj3EC8tFbwzk1xOLWRzby19AIpW_8b5b_WuP1JiDSDYiWm206aAW_iM1oHc4d_SF_hQsYFOTM_3_LWWmshIUKCS60F8pTbmZupLIREDDPUxtG340mpcY1Oq20B16EfUxlZArvepXe0ZaAtY22667YtRhQU2GCvqm6r0wbZZxaKt9jDQKXF2M8tvrlZzEc-7Va6J9prLi-52xiyGGnW18">
-<span class="duration-pill">02:15</span>
-<div class="hover-play-layer">
-<div class="circle-play">
-<svg viewBox="0 0 24 24"><polygon points="6 4 18 12 6 20 6 4"></polygon></svg>
-</div>
-</div>
-</figure>
-<figcaption class="card-caption">
-<div class="meta-row">
-<span>Corporatiu</span>
-<span>2023</span>
-</div>
-<div class="title-row">
-<h3>COPISA — Infraestructures Globals</h3>
-<svg class="arrow-icon" viewBox="0 0 24 24"><line x1="7" x2="17" y1="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-</div>
-<p class="client-info">COPISA Grup • Film Institucional d'Enginyeria</p>
-</figcaption>
-</article>
-<!-- Project 6: Hoy es el principio del final (Publicitat) -->
-<article class="cinema-card" data-category="publicitat" data-client="Campanya Social &amp; Ficció" data-embed="https://player.vimeo.com/video/76979871?autoplay=1&amp;title=0&amp;byline=0&amp;portrait=0" data-tag="Campanya Social &amp; Ficció" data-title="Hoy es el principio del final">
-<figure class="card-frame">
-<img alt="Hoy es el principio del final — Pla cinematogràfic crepuscular de Barcelona" class="card-still" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa7T5y7E-jn1FsMDiIOYOqTAEVRfY71gZM5R4o2aRAGVkQz3lxk2mAFpXsM5BPtLLHQMBtGSf3EOK5dYydp6tCOsDKrGPx5gAmKQW2V9gmbAjfxFcJHsi1Pk4G1yHaOAobyThvLAp-iCaqLpgm0UoXSNtO6yXS4IEP3EG0c5oIiKsiq7wK_jRzGmXhFWi9ldHGcKcscdyXE4LnVNG7ei7BrbLRH4MB59LuklrzPrY">
-<span class="duration-pill">01:30</span>
-<div class="hover-play-layer">
-<div class="circle-play">
-<svg viewBox="0 0 24 24"><polygon points="6 4 18 12 6 20 6 4"></polygon></svg>
-</div>
-</div>
-</figure>
-<figcaption class="card-caption">
-<div class="meta-row">
-<span>Publicitat</span>
-<span>2023</span>
-</div>
-<div class="title-row">
-<h3>Hoy es el principio del final</h3>
-<svg class="arrow-icon" viewBox="0 0 24 24"><line x1="7" x2="17" y1="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-</div>
-<p class="client-info">Campanya Social &amp; Ficció • Curtmetratge Cinema</p>
-</figcaption>
-</article>
-</div>
-</section><section id="estudi" aria-labelledby="studio-heading" style="padding-top: clamp(4rem, 8vw, 6.5rem); padding-bottom: clamp(4rem, 8vw, 6.5rem); border-top: 1px solid var(--border);"><div style="display: flex; flex-direction: column; gap: 3.5rem;"><div style="border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem;"><span style="font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted);">L'Estudi • Consell de Cent 315</span><h2 id="studio-heading" style="font-size: clamp(2rem, 3.8vw, 3.2rem); letter-spacing: -0.04em; font-weight: 700; color: var(--text);">Quinze anys d'ofici, mirada d'autor i rigor tècnic.</h2></div><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(2rem, 4vw, 3.5rem);"><div style="display: flex; flex-direction: column; gap: 1rem;"><span style="font-family: var(--font-mono); font-size: 0.72rem; color: #FF334B; letter-spacing: 0.08em; text-transform: uppercase;">01 / Filosofia artesanal</span><h3 style="font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text);">Producció d'alta precisió</h3><p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.7;">No creiem en fórmules industrials en sèrie. Cada projecte s'aborda com una peça única, des de la conceptualització visual i el pla de rodatge fins a l'etalonatge cromàtic i el disseny sonor d'alta fidelitat.</p></div><div style="display: flex; flex-direction: column; gap: 1rem;"><span style="font-family: var(--font-mono); font-size: 0.72rem; color: #FF334B; letter-spacing: 0.08em; text-transform: uppercase;">02 / Equip &amp; Infraestructura</span><h3 style="font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text);">Càmeres de cinema i òptiques anamòrfiques</h3><p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.7;">Disposem de parc propi de càmeres cinematogràfiques ARRI i RED, òptiques anamòrfiques Hawk i Zeiss Master, i estacions pròpies de correcció de color amb monitors calibrats DaVinci Resolve a Barcelona.</p></div><div style="display: flex; flex-direction: column; gap: 1rem;"><span style="font-family: var(--font-mono); font-size: 0.72rem; color: #FF334B; letter-spacing: 0.08em; text-transform: uppercase;">03 / Col·laboració directa</span><h3 style="font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text);">Sense intermediaris innecessaris</h3><p style="font-size: 0.95rem; color: var(--text-muted); line-height: 1.7;">Treball directe i orgànic entre direcció, realització i el client. Des del cor de l'Eixample barcelonès, connectem marques i projectes documentals amb audiències globals.</p></div></div><div style="border: 1px solid var(--border); background: var(--surface); padding: 1.75rem 2rem; border-radius: var(--radius-sm); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem;"><div style="display: flex; flex-direction: column; gap: 0.25rem;"><span style="font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; color: var(--text-dim); letter-spacing: 0.06em;">Localització d'estudi</span><p style="font-size: 1rem; color: var(--text); font-weight: 600;">Carrer del Consell de Cent, 315 E2, 08007 Barcelona</p></div><a href="mailto:produccio@proddigi.com" style="display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.65rem 1.25rem; border: 1px solid var(--border); border-radius: 999px; background: var(--surface-elevated); color: var(--text); font-weight: 600; transition: background-color 200ms ease;">Iniciar projecte ↗</a></div></div></section>
-</main>
-<!-- 4. NATIVE VIDEO LIGHTBOX (<dialog>) -->
-<dialog aria-labelledby="dialogTitle" id="videoLightbox">
-<div class="dialog-header">
-<div class="dialog-title-meta">
-<span class="diag-dot"></span>
-<span id="dialogCategory">Proddigi Cinema Player</span>
-</div>
-<button aria-label="Tancar reproductor" class="dialog-close" id="closeLightbox" type="button">
-<svg viewBox="0 0 24 24">
+
+<dialog id="videoLightbox" class="video-lightbox">
+<button id="closeLightbox" aria-label="Tancar" class="close-btn">
+<svg fill="none" height="24" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="24">
 <line x1="18" x2="6" y1="6" y2="18"></line>
 <line x1="6" x2="18" y1="6" y2="18"></line>
 </svg>
 </button>
+<div class="dialog-container">
+<iframe id="lightboxIframe" allow="autoplay" allowfullscreen="" class="video-iframe" frameborder="0" src=""></iframe>
 </div>
-<div class="dialog-body">
-<iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" id="lightboxIframe" src="" title="Reproductor de vídeo Proddigi"></iframe>
+<div class="dialog-footer">
+<div class="dialog-content">
+<div>
+<h4 id="dialogTitle">Títol del Projecte</h4>
+<p id="dialogClient">Client • Categoria</p>
 </div>
-<div class="dialog-footer"><div style="width: 100%; display: flex; flex-direction: column; gap: 1.25rem;"><div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1.5rem; flex-wrap: wrap;"><div><h4 id="dialogTitle" style="font-size: 1.25rem; font-weight: 700; color: var(--text); letter-spacing: -0.02em;">Títol del Projecte</h4><p id="dialogClient" style="font-size: 0.88rem; color: var(--text-muted); margin-top: 0.25rem;">Client • Categoria</p><script>window.updateLightboxSpecs = function(el) { if(!el) return; document.getElementById('dialogDirector').textContent = el.dataset.director || 'Proddigi Team'; document.getElementById('dialogDoP').textContent = el.dataset.dop || 'Cinematografia Proddigi'; document.getElementById('dialogFormat').textContent = el.dataset.format || '4K DCI • Cinema Anamorphic'; document.getElementById('dialogYear').textContent = el.dataset.year || '2024'; }; document.addEventListener('DOMContentLoaded', () => { document.querySelectorAll('.cinema-card, #heroReelTrigger').forEach(item => { item.addEventListener('click', () => { window.updateLightboxSpecs(item); }); }); });</script></div><a class="vimeo-external-link" href="https://vimeo.com/proddigi" rel="noopener noreferrer" target="_blank" style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text); text-transform: uppercase; letter-spacing: 0.06em; padding: 0.4rem 0.8rem; border: 1px solid var(--border); border-radius: 999px; display: inline-flex; align-items: center; gap: 0.4rem;">Vimeo Pro ↗</a></div><div id="dialogSpecsRow" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-subtle); font-family: var(--font-mono); font-size: 0.72rem;"><div><span style="display: block; color: var(--text-dim); text-transform: uppercase; margin-bottom: 2px;">Director</span><span id="dialogDirector" style="color: var(--text); font-weight: 600;">—</span></div><div><span style="display: block; color: var(--text-dim); text-transform: uppercase; margin-bottom: 2px;">DoP</span><span id="dialogDoP" style="color: var(--text); font-weight: 600;">—</span></div><div><span style="display: block; color: var(--text-dim); text-transform: uppercase; margin-bottom: 2px;">Format</span><span id="dialogFormat" style="color: var(--text); font-weight: 600;">—</span></div><div><span style="display: block; color: var(--text-dim); text-transform: uppercase; margin-bottom: 2px;">Any</span><span id="dialogYear" style="color: var(--text); font-weight: 600;">2024</span></div></div></div></div>
+<a class="vimeo-external-link" href="https://vimeo.com/proddigi" rel="noopener noreferrer" target="_blank">Vimeo Pro ↗</a>
+</div>
+<div id="dialogSpecsRow" class="dialog-specs">
+<div><span>Director</span><span id="dialogDirector">—</span></div>
+<div><span>DoP</span><span id="dialogDoP">—</span></div>
+<div><span>Format</span><span id="dialogFormat">—</span></div>
+<div><span>Any</span><span id="dialogYear">2024</span></div>
+</div>
+</div>
 </dialog>
-<!-- 5. AUTHENTIC PRODDIGI FOOTER -->
-<footer id="contacte">
-<div class="footer-container">
-<!-- Col 1: Studio Real Address -->
-<div class="footer-col">
-<span class="col-label">Estudi Barcelona</span>
-<address>
-<strong>Proddigi Films</strong><br>
-          Carrer del Consell de Cent, 315 E2<br>
-          08007 Barcelona<br>
-          Catalunya
-        </address>
+
+<section id="estudi" class="studies-section">
+<div class="container">
+<div class="studies-header">
+<span class="studies-label">L'Estudi • Consell de Cent 315</span>
+<h2>Quinze anys d'ofici, mirada d'autor i rigor tècnic.</h2>
 </div>
-<!-- Col 2: Direct Contact -->
+<div class="studies-grid">
+<div class="study-card">
+<span class="study-number">01 / Filosofia artesanal</span>
+<h3>Producció d'alta precisió</h3>
+<p>No creiem en fórmules industrials en sèrie. Cada projecte s'aborda com una peça única, des de la conceptualització visual i el pla de rodatge fins a l'etalonatge cromàtic i el disseny sonor d'alta fidelitat.</p>
+</div>
+<div class="study-card">
+<span class="study-number">02 / Equip &amp; Infraestructura</span>
+<h3>Càmeres de cinema i òptiques anamòrfiques</h3>
+<p>Disposem de parc propi de càmeres cinematogràfiques ARRI i RED, òptiques anamòrfiques Hawk i Zeiss Master, i estacions pròpies de correcció de color amb monitors calibrats DaVinci Resolve a Barcelona.</p>
+</div>
+<div class="study-card">
+<span class="study-number">03 / Col·laboració directa</span>
+<h3>Sense intermediaris innecessaris</h3>
+<p>Treball directe i orgànic entre direcció, realització i el client. Des del cor de l'Eixample barcelonès, connectem marques i projectes documentals amb audiències globals.</p>
+</div>
+</div>
+<div class="studies-contact">
+<div>
+<span>Localització d'estudi</span>
+<p>Carrer del Consell de Cent, 315 E2, 08007 Barcelona</p>
+</div>
+<a href="mailto:produccio@proddigi.com" class="contact-link">Iniciar projecte ↗</a>
+</div>
+</section>
+
+<footer id="contacte">
+<div class="container">
+<div class="footer-cols">
+<div class="footer-col">
+<span class="col-label">Sobre Proddigi</span>
+<ul>
+<li><a href="#">Nosaltres</a></li>
+<li><a href="#">Equip</a></li>
+<li><a href="#">Premis</a></li>
+</ul>
+</div>
 <div class="footer-col">
 <span class="col-label">Contacte Directe</span>
-<ul class="contact-links">
+<ul>
 <li><a href="mailto:info@proddigi.com">info@proddigi.com</a></li>
 <li><a href="tel:+34935326647">+34 93 532 66 47</a></li>
 <li><a href="mailto:produccio@proddigi.com">produccio@proddigi.com</a></li>
 </ul>
 </div>
-<!-- Col 3: Social & Showcase Links -->
 <div class="footer-col">
 <span class="col-label">Xarxes &amp; Cinema</span>
-<ul class="social-links">
+<ul>
 <li><a href="https://vimeo.com/proddigi" rel="noopener" target="_blank">Vimeo Pro (vimeo.com/proddigi) ↗</a></li>
 <li><a href="https://instagram.com/proddigi" rel="noopener" target="_blank">Instagram (@proddigi) ↗</a></li>
 <li><a href="https://linkedin.com" rel="noopener" target="_blank">LinkedIn ↗</a></li>
@@ -306,14 +266,11 @@
 </div>
 <div class="footer-bottom">
 <p>© 2026 Proddigi Films. Producció cinematogràfica, publicitat i narrativa documental a Barcelona.</p>
-<div class="credits">Developed in Barcelona by <a href="https://xarop.com" target="_blank" rel="noopener" style="text-decoration: underline; color: inherit;">xarop.com</a></div>
+<div class="credits">Developed in Barcelona by <a href="https://xarop.com" target="_blank" rel="noopener">xarop.com</a></div>
+</div>
 </div>
 </footer>
-<!-- Pure Vanilla JavaScript Interactivity -->
 
 <script src="app.js" defer></script>
-
-
-
-
-</body></html>
+</body>
+</html>
