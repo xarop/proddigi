@@ -78,7 +78,7 @@
           A Proddigi entenem la producció com un procés artesanal de col·laboració continu. Cinema, publicitat i narrativa documental d'alta precisió.
         </p>
 </div>
-<div class="hero-cta-action"><button id="heroReelTrigger" type="button" aria-label="Reproduir Showreel Proddigi" class="play-reel-btn" data-category="Showreel Oficial" data-client="Proddigi Barcelona • 2025" data-embed="https://player.vimeo.com/video/76979871?autoplay=1&amp;title=0&amp;byline=0&amp;portrait=0" data-title="Proddigi Reel 2025" data-director="Proddigi Cinema Dept." data-dop="Alex Costa" data-format="4K DCI • Hawk Anamorphic" data-year="2025"><span></span><span>PLAY REEL • 01:45</span></button></div>
+<div class="hero-cta-action"><button id="heroReelTrigger" type="button" aria-label="Reproduir Showreel Proddigi" class="play-reel-btn" data-category="Showreel Oficial" data-client="Proddigi Barcelona • 2025" data-embed="https://player.vimeo.com/video/106273274?autoplay=1&amp;title=0&amp;byline=0&amp;portrait=0" data-title="Proddigi Reel 2025" data-director="Proddigi Cinema Dept." data-dop="Alex Costa" data-format="4K DCI • Hawk Anamorphic" data-year="2025"><span></span><span>PLAY REEL • 01:45</span></button></div>
 </div>
 <!-- Bottom Camera & Film Telemetry Bar -->
 <div class="hero-bottom-telemetry">
@@ -323,7 +323,35 @@
 <div class="dialog-body">
 <iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" id="lightboxIframe" src="" title="Reproductor de vídeo Proddigi"></iframe>
 </div>
-<div class="dialog-footer"><div><div><div><h4 id="dialogTitle">Títol del Projecte</h4><p id="dialogClient">Client • Categoria</p><script>window.updateLightboxSpecs = function(el) { if(!el) return; document.getElementById('dialogDirector').textContent = el.dataset.director || 'Proddigi Team'; document.getElementById('dialogDoP').textContent = el.dataset.dop || 'Cinematografia Proddigi'; document.getElementById('dialogFormat').textContent = el.dataset.format || '4K DCI • Cinema Anamorphic'; document.getElementById('dialogYear').textContent = el.dataset.year || '2024'; }; document.addEventListener('DOMContentLoaded', () => { document.querySelectorAll('.cinema-card, #heroReelTrigger').forEach(item => { item.addEventListener('click', () => { window.updateLightboxSpecs(item); }); }); });</script></div><a class="vimeo-external-link" href="https://vimeo.com/proddigi" rel="noopener noreferrer" target="_blank">Vimeo Pro ↗</a></div><div id="dialogSpecsRow"><div><span>Director</span><span id="dialogDirector">—</span></div><div><span>DoP</span><span id="dialogDoP">—</span></div><div><span>Format</span><span id="dialogFormat">—</span></div><div><span>Any</span><span id="dialogYear">2024</span></div></div></div></div>
+<div class="dialog-footer">
+<div class="dialog-meta-details">
+<h4 id="dialogTitle">Títol del Projecte</h4>
+<p id="dialogClient">Client • Categoria</p>
+</div>
+<div id="dialogSpecsRow">
+<div><span>Director</span><span id="dialogDirector">—</span></div>
+<div><span>DoP</span><span id="dialogDoP">—</span></div>
+<div><span>Format</span><span id="dialogFormat">—</span></div>
+<div><span>Any</span><span id="dialogYear">2024</span></div>
+</div>
+<a class="vimeo-external-link" href="https://vimeo.com/proddigi" rel="noopener noreferrer" target="_blank">Vimeo Pro ↗</a>
+<script>
+window.updateLightboxSpecs = function(el) {
+  if(!el) return;
+  document.getElementById('dialogDirector').textContent = el.dataset.director || 'Proddigi Team';
+  document.getElementById('dialogDoP').textContent = el.dataset.dop || 'Cinematografia Proddigi';
+  document.getElementById('dialogFormat').textContent = el.dataset.format || '4K DCI • Cinema Anamorphic';
+  document.getElementById('dialogYear').textContent = el.dataset.year || '2024';
+};
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.cinema-card, #heroReelTrigger').forEach(item => {
+    item.addEventListener('click', () => {
+      window.updateLightboxSpecs(item);
+    });
+  });
+});
+</script>
+</div>
 </dialog>
 <!-- 5. AUTHENTIC PRODDIGI FOOTER -->
 <footer id="contacte">

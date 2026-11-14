@@ -791,65 +791,71 @@
       position: fixed;
       inset: 0;
       margin: auto;
-      max-width: 1040px;
-      width: calc(100% - 2.5rem);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
+      max-width: 95vw;
+      max-height: 95vh;
+      width: 100%;
+      height: auto;
+      background: #000;
+      border: none;
+      border-radius: 0;
       color: var(--text);
       padding: 0;
-      box-shadow: 0 35px 90px rgba(0, 0, 0, 0.85);
+      box-shadow: none;
       outline: none;
 
       &::backdrop {
-        background-color: rgba(10, 10, 11, 0.94);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
+        background-color: rgba(10, 10, 11, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
       }
 
       .dialog-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0.9rem 1.4rem;
-        border-bottom: 1px solid var(--border);
-        background: var(--surface-elevated);
+        padding: 1.2rem 1.8rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(10px);
 
         .dialog-title-meta {
           display: flex;
           align-items: center;
-          gap: 0.6rem;
+          gap: 0.8rem;
           font-family: var(--font-mono);
-          font-size: 0.75rem;
+          font-size: 0.7rem;
           text-transform: uppercase;
-          letter-spacing: 0.05em;
-          color: var(--text-muted);
+          letter-spacing: 0.08em;
+          color: rgba(255, 255, 255, 0.7);
 
           .diag-dot {
-            width: 6px;
-            height: 6px;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
             background: var(--indicator-red);
+            box-shadow: 0 0 10px var(--indicator-red);
+            animation: pulse-red 2s ease-in-out infinite;
           }
         }
 
         button.dialog-close {
-          width: 32px;
-          height: 32px;
+          width: 40px;
+          height: 40px;
           display: grid;
           place-items: center;
-          border-radius: var(--radius-sm);
-          color: var(--text-muted);
-          transition: background-color var(--transition), color var(--transition);
+          border-radius: 0;
+          background: transparent;
+          color: rgba(255, 255, 255, 0.6);
+          transition: color 200ms ease, background-color 200ms ease;
 
           &:hover {
-            background-color: var(--surface-hover);
-            color: var(--text);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
           }
 
           svg {
-            width: 18px;
-            height: 18px;
+            width: 24px;
+            height: 24px;
             stroke: currentColor;
             stroke-width: 2;
           }
@@ -860,6 +866,7 @@
         aspect-ratio: 16 / 9;
         width: 100%;
         background-color: #000;
+        position: relative;
 
         iframe {
           width: 100%;
@@ -870,36 +877,74 @@
       }
 
       .dialog-footer {
-        padding: 1.1rem 1.4rem;
+        padding: 1.8rem 1.8rem;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: var(--surface);
-        border-top: 1px solid var(--border-subtle);
+        flex-direction: column;
+        gap: 1.5rem;
+        background: rgba(0, 0, 0, 0.4);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
 
         .dialog-meta-details {
           h4 {
-            font-size: 1.1rem;
+            font-size: 1.25rem;
             font-weight: 700;
-            color: var(--text);
+            color: #fff;
+            margin: 0 0 0.5rem 0;
           }
           p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-top: 0.15rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin: 0;
+          }
+        }
+
+        #dialogSpecsRow {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+          gap: 1.5rem;
+
+          > div {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+
+            span:first-child {
+              font-family: var(--font-mono);
+              font-size: 0.7rem;
+              text-transform: uppercase;
+              letter-spacing: 0.08em;
+              color: rgba(255, 255, 255, 0.5);
+            }
+
+            span:last-child {
+              font-size: 0.95rem;
+              color: rgba(255, 255, 255, 0.85);
+              font-weight: 500;
+            }
           }
         }
 
         a.vimeo-external-link {
           font-family: var(--font-mono);
           font-size: 0.8rem;
-          color: var(--text-muted);
-          text-decoration: underline;
-          text-underline-offset: 3px;
+          color: rgba(255, 255, 255, 0.6);
+          text-decoration: none;
+          text-transform: uppercase;
+          letter-spacing: 0.06em;
+          transition: color 200ms ease;
 
           &:hover {
-            color: var(--text);
+            color: var(--indicator-red);
           }
+        }
+      }
+
+      @keyframes pulse-red {
+        0%, 100% {
+          box-shadow: 0 0 10px var(--indicator-red);
+        }
+        50% {
+          box-shadow: 0 0 20px var(--indicator-red);
         }
       }
     }
