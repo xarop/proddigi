@@ -19,7 +19,8 @@ Instructius per treballar en aquest repositori (web estàtica de **Proddigi Film
 
 ```text
 .
-├── code.html            # Document principal
+├── code.html            # Document principal (edició local)
+├── index.html           # Entrada per a GitHub Pages (còpia de code.html)
 ├── screen.png           # Captura per a descripcions/repositòries
 ├── README.md            # Documentació general
 ├── DESIGN.md            # Disseny editorial / tokens

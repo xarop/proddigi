@@ -28,7 +28,8 @@ No requereix build, paquets ni servidor: és un repositori que es pot obrir dire
 
 ```text
 .
-├── code.html            # Document principal de la web (HTML + CSS + JS)
+├── code.html            # Document principal (edició local)
+├── index.html           # Entrada per a GitHub Pages (còpia de code.html)
 ├── screen.png           # Captura per a descripcions i imatges de repositori
 └── README.md            # Aquesta documentació
 ```
