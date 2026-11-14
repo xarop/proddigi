@@ -45,7 +45,7 @@ Tots els valors es defineixen a `:root` (mode clar) i s'inverteixen al selector 
 
 ## 5. Pòrtics i components
 
-- **Header** — estàtic, amb `backdrop-filter: blur(16px)`, fons semi-transparent i vora de divisió.
+- **Header / menú hamburguesa (responsive)** — En pantalla gran és un fil d'Ariadna: els enllaços al costat del brand. A partir de `max-width: 860px` es converteix en menú desplegable: el botó `.menu-toggle` (hamburguesa) obre un overlay absolut sota `<header>`. El selector d'idioma (`.lang-switcher`) es mostra **dintre** d'aquest menú, i el switch de mode clar/fosc (`#themeToggle`) es manté **fora** del menú, sempre visible.
 - **Hero** — imatge panoràmica de fons amb "vignette" i "film grain" (seccions `.hero-backdrop-container`, `.hero-vignette`, `.film-grain`).
 - **Tech bar / barra de dades tècniques** — `4K DCI • 2.39:1 CINEMASCOPE`, `BARCELONA STUDIO`, etc.
 - **Cards del portafoli** — amb títol, client, any, durada i "badge" d'estil.

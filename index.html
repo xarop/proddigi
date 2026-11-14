@@ -267,19 +267,31 @@
           width: 100%;
           background: var(--bg);
           border-bottom: 1px solid var(--border);
-          padding: 1.5rem var(--gutter);
+          padding: 1.25rem var(--gutter);
           flex-direction: column;
-          gap: 1.25rem;
-
-          &.is-open {
-            display: flex;
-          }
+          gap: 0.25rem;
+          z-index: 110;
 
           ul {
             flex-direction: column;
-            gap: 1.2rem;
+            gap: 0.25rem;
             width: 100%;
           }
+
+          li a {
+            padding: 0.85rem 0.25rem;
+          }
+
+          .lang-switcher {
+            padding: 0.7rem 0.85rem;
+            border-radius: 12px;
+            gap: 0.4rem;
+            width: 100%;
+          }
+        }
+
+        nav.is-open {
+          display: flex;
         }
 
         .menu-toggle {
@@ -985,24 +997,20 @@
 <header>
 <div class="header-container">
 <a aria-label="Proddigi inici" class="brand" href="#"><span style="font-family: var(--font-sans); font-weight: 800; font-size: 1.35rem; letter-spacing: -0.04em; color: var(--text); display: inline-flex; align-items: baseline; gap: 4px;">proddigi<span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #FF334B; box-shadow: 0 0 8px rgba(255, 51, 75, 0.7); margin-bottom: 2px;"></span></span></a>
-<button aria-expanded="false" aria-label="Obrir menú" class="menu-toggle" id="menuToggle">
+<button aria-expanded="false" aria-controls="primaryNav" aria-label="Obrir menú" class="menu-toggle" id="menuToggle">
 <svg fill="none" height="22" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="22">
 <line x1="3" x2="21" y1="12" y2="12"></line>
 <line x1="3" x2="21" y1="6" y2="6"></line>
 <line x1="3" x2="21" y1="18" y2="18"></line>
 </svg>
 </button>
-<nav id="primaryNav">
+<nav id="primaryNav" aria-label="Menú de navegació">
 <ul>
 <li><a aria-current="page" href="#portafoli">Portafoli</a></li>
 <li><a href="#estudi">Estudi</a></li>
 <li><a href="#serveis">Serveis</a></li>
 <li><a href="#contacte">Contacte</a></li>
-</ul>
-</nav>
-<div class="header-actions">
-<!-- Architectural Dark / Light Segmented Switch (Strictly NO Sun/Moon icons) -->
-<button id="themeToggle" aria-label="Canviar tema clar/fosc" type="button" style="position: relative; width: 38px; height: 20px; border-radius: 999px; background: var(--surface-elevated); border: 1px solid var(--border); cursor: pointer; padding: 2px; display: flex; align-items: center; transition: background-color 200ms, border-color 200ms;" onclick="const isDark = document.documentElement.getAttribute('data-theme') === 'dark'; document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark'); const thumb = this.querySelector('span'); if(thumb) { thumb.style.transform = isDark ? 'translateX(18px)' : 'translateX(0)'; }"><span style="display: block; width: 14px; height: 14px; border-radius: 50%; background: var(--text); transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1); transform: translateX(0);"></span></button>
+<li>
 <div aria-label="Selector d'idioma" class="lang-switcher">
 <button aria-pressed="true" class="active" type="button">CAT</button>
 <span class="divider">/</span>
@@ -1010,6 +1018,12 @@
 <span class="divider">/</span>
 <button aria-pressed="false" type="button">ENG</button>
 </div>
+</li>
+</ul>
+</nav>
+<div class="header-actions">
+<!-- Switch de mode clar/fosc (fora del menú hamburguesa) -->
+<button id="themeToggle" aria-label="Canviar tema clar/fosc" type="button" style="position: relative; width: 38px; height: 20px; border-radius: 999px; background: var(--surface-elevated); border: 1px solid var(--border); cursor: pointer; padding: 2px; display: flex; align-items: center; transition: background-color 200ms, border-color 200ms;" onclick="const isDark = document.documentElement.getAttribute('data-theme') === 'dark'; document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark'); const thumb = this.querySelector('span'); if(thumb) { thumb.style.transform = isDark ? 'translateX(18px)' : 'translateX(0)'; }"><span style="display: block; width: 14px; height: 14px; border-radius: 50%; background: var(--text); transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1); transform: translateX(0);"></span></button>
 </div>
 </div>
 </header>
@@ -1296,13 +1310,44 @@
       themeDarkBtn.addEventListener('click', () => setTheme('dark'));
       themeLightBtn.addEventListener('click', () => setTheme('light'));
 
-      // 2. Mobile Nav Toggle
+      // 2. Mobile Nav Toggle (hamburguesa) — només a mida de pantalla petita
       const menuBtn = document.getElementById('menuToggle');
       const primaryNav = document.getElementById('primaryNav');
       if (menuBtn && primaryNav) {
-        menuBtn.addEventListener('click', () => {
+        menuBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
           const isOpen = primaryNav.classList.toggle('is-open');
           menuBtn.setAttribute('aria-expanded', isOpen);
+          menuBtn.setAttribute('aria-label', isOpen ? 'Tancar menú' : 'Obrir menú');
+        });
+
+        // Tanca el menú quan es clicar en un enllaç
+        primaryNav.querySelectorAll('a').forEach((link) => {
+          link.addEventListener('click', () => {
+            primaryNav.classList.remove('is-open');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            menuBtn.setAttribute('aria-label', 'Obrir menú');
+          });
+        });
+
+        // Tanca amb la tecla Escape
+        const dismissMenu = (e) => {
+          if (e.key === 'Escape' && primaryNav.classList.contains('is-open')) {
+            primaryNav.classList.remove('is-open');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            menuBtn.setAttribute('aria-label', 'Obrir menú');
+          }
+        };
+        document.addEventListener('keydown', dismissMenu);
+
+        // Tanca en clicar fora del menú ni del botó
+        document.addEventListener('click', (e) => {
+          const isInside = primaryNav.contains(e.target) || menuBtn.contains(e.target);
+          if (!isInside && primaryNav.classList.contains('is-open')) {
+            primaryNav.classList.remove('is-open');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            menuBtn.setAttribute('aria-label', 'Obrir menú');
+          }
         });
       }
 
