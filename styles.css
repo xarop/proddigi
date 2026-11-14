@@ -283,6 +283,11 @@ header .menu-toggle svg {
 
 /* MOBILE LAYOUT (max-width: 860px) */
 @media (max-width: 860px) {
+  header .header-container {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
   header nav {
     display: none;
     position: absolute;
@@ -308,6 +313,22 @@ header .menu-toggle svg {
 
   header .menu-toggle {
     display: flex;
+  }
+
+  /* En mòbil: header-actions mostra's al menú expandit */
+  header .header-actions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem var(--gutter);
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+    display: flex;
+    order: 100;
   }
 }
 
