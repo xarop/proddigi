@@ -250,6 +250,18 @@ document.addEventListener('DOMContentLoaded', () => {
       const player = new window.Vimeo.Player(heroVideoPlayer);
       let isAudioOn = true;
       
+      // Force player to fill container without maintaining aspect ratio
+      player.ready().then(() => {
+        // Get parent dimensions
+        const parent = heroVideoPlayer.parentElement;
+        const width = parent.clientWidth;
+        const height = parent.clientHeight;
+        
+        // Set player dimensions to fill parent
+        heroVideoPlayer.style.width = width + 'px';
+        heroVideoPlayer.style.height = height + 'px';
+      });
+      
       // Start with audio ON
       player.setVolume(0.7).catch(e => console.log('Initial volume:', e));
       volumeToggle.classList.remove('muted');
