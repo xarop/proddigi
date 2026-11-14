@@ -248,11 +248,11 @@ document.addEventListener('DOMContentLoaded', () => {
     vimeoScript.onload = () => {
       // Initialize Vimeo player
       const player = new window.Vimeo.Player(heroVideoPlayer);
-      let isAudioOn = false;
+      let isAudioOn = true;
       
-      // Start muted
-      player.setVolume(0).catch(e => console.log('Initial mute:', e));
-      volumeToggle.classList.add('muted');
+      // Start with audio ON
+      player.setVolume(0.7).catch(e => console.log('Initial volume:', e));
+      volumeToggle.classList.remove('muted');
       
       // Volume toggle handler
       volumeToggle.addEventListener('click', async (e) => {
